@@ -1052,12 +1052,12 @@
     <section id="overview">
       <div class="section-tag"><span class="num">01</span> Overview</div>
       <h2>Tổng quan quy trình
-        <span class="vi">Hai luồng chính: Front-end (chế tạo trên wafer) và Back-end (đóng gói &amp; kiểm tra)</span>
+        <span class="vi">Hai luồng chính: Front-end (chế tạo trên wafer) và Back-end (đóng gói &amp; kiểm thử)</span>
       </h2>
       <p>
         Sản xuất một con chip hiện đại không phải là <em>một</em> quy trình mà là <strong>hàng nghìn bước</strong> nhỏ lặp đi lặp lại, được nhóm thành hai giai đoạn lớn:
         <span class="term fe">Wafer Process (Front-end)</span> tạo ra các transistor và đường nối ngay trên tấm silicon, và
-        <span class="term be">Assembly &amp; Test Process (Back-end)</span> cắt, kiểm tra, đóng gói chip thành sản phẩm hoàn chỉnh.
+        <span class="term be">Assembly &amp; Test Process (Back-end)</span> cắt, kiểm thử, đóng gói chip thành sản phẩm hoàn chỉnh.
       </p>
       <p>
         Một <span class="term">wafer</span> 300 mm có thể chứa hàng trăm tới hàng nghìn chip; mỗi chip có hàng tỷ transistor được khắc với độ chính xác cỡ vài nanometer — bằng <strong>1/10.000 độ dày sợi tóc</strong>.
@@ -1146,7 +1146,7 @@
           <path d="M 780 95 Q 780 140 120 140 Q 120 165 120 187" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
         </svg>
         <div class="figure-caption">
-          <strong>Hình 1.</strong> Hai luồng chính của quy trình. Front-end (xanh lam) lặp lại 4 bước cốt lõi 30–80 lần để xây dựng nhiều lớp transistor và dây nối. Back-end (xanh lá) cắt wafer ra, kiểm tra và đóng gói thành chip thương phẩm.
+          <strong>Hình 1.</strong> Hai luồng chính của quy trình. Front-end (xanh lam) lặp lại 4 bước cốt lõi 30–80 lần để xây dựng nhiều lớp transistor và dây nối. Back-end (xanh lá) cắt wafer ra, kiểm thử và đóng gói thành chip thương phẩm.
         </div>
       </div>
     </section>
@@ -1868,7 +1868,7 @@
       </h2>
 
       <p>
-        Trên một wafer 300 mm có thể có <strong>hàng trăm tới hàng nghìn chip</strong> (gọi là <span class="term be">die</span>). Một số chip không tránh khỏi bị lỗi — hạt bụi, lệch lithography, hỏng transistor… Vì <strong>đóng gói rất tốn kém</strong>, ta phải <em>kiểm tra trước khi đóng gói</em> để loại bỏ chip xấu.
+        Trên một wafer 300 mm có thể có <strong>hàng trăm tới hàng nghìn chip</strong> (gọi là <span class="term be">die</span>). Một số chip không tránh khỏi bị lỗi — hạt bụi, lệch lithography, hỏng transistor… Vì <strong>đóng gói rất tốn kém</strong>, ta phải <em>kiểm thử trước khi đóng gói</em> để loại bỏ chip xấu.
       </p>
 
       <div class="gloss">
@@ -1878,11 +1878,11 @@
 
       <div class="gloss">
         <div class="head">KGD · Known Good Die</div>
-        "Die đã biết là tốt" — chip đã vượt qua kiểm tra wafer-level. Ngược lại là <em>defect die</em>, sẽ được đánh dấu bằng mực đen hoặc map điện tử để skip ở bước dicing.
+        "Die đã biết là tốt" — chip đã vượt qua kiểm thử wafer-level. Ngược lại là <em>defect die</em>, sẽ được đánh dấu bằng mực đen hoặc map điện tử để skip ở bước dicing.
       </div>
 
       <p>
-        <span class="term">Yield</span> (hiệu suất) là chỉ số quan trọng nhất của một fab — tỷ lệ % die tốt trên một wafer. Nút công nghệ tiên tiến (3 nm, 2 nm) thường khởi đầu với yield chỉ <strong>20–40%</strong>, sau nhiều tháng tối ưu mới lên được 80–90%. <em>Thiết bị tiêu biểu</em>: <span class="term be">Prexa</span> — wafer prober của TEL (kế thừa Precio từ 8/2021) chạm probe card xuống từng die để đo điện.<a href="#ref1" class="cite">[1]</a><a href="#ref4" class="cite">[4]</a> Sau đó các die phức tạp (DRAM, NAND, SoC) được đưa qua <span class="term be">Cellcia</span> — hệ multi-cell test cho phép kiểm tra <em>hàng nghìn die song song</em><a href="#ref2" class="cite">[2]</a>, rút ngắn thời gian test xuống còn vài giây/die.
+        <span class="term">Yield</span> (hiệu suất) là chỉ số quan trọng nhất của một fab — tỷ lệ % die tốt trên một wafer. Nút công nghệ tiên tiến (3 nm, 2 nm) thường khởi đầu với yield chỉ <strong>20–40%</strong>, sau nhiều tháng tối ưu mới lên được 80–90%. <em>Thiết bị tiêu biểu</em>: <span class="term be">Prexa</span> — wafer prober của TEL (kế thừa Precio từ 8/2021) chạm probe card xuống từng die để đo điện.<a href="#ref1" class="cite">[1]</a><a href="#ref4" class="cite">[4]</a> Sau đó các die phức tạp (DRAM, NAND, SoC) được đưa qua <span class="term be">Cellcia</span> — hệ multi-cell test cho phép kiểm thử <em>hàng nghìn die song song</em><a href="#ref2" class="cite">[2]</a>, rút ngắn thời gian test xuống còn vài giây/die.
       </p>
 
       <figure class="equipment-photo be">
@@ -2105,7 +2105,7 @@
 
       <h3>Inspection <span class="vi">— Kiểm tra từng chip</span></h3>
       <p>
-        Mỗi die sau khi cắt được <strong>kiểm tra quang học</strong> (AOI — Automated Optical Inspection) để phát hiện vết nứt, sứt mẻ, hạt bụi. Một số dòng cao cấp còn dùng <strong>X-ray inspection</strong> để soi cấu trúc bên trong (đặc biệt cho 3D NAND nhiều tầng). Một bước test cuối nữa thường được thực hiện sau khi wafer đã được cắt và đặt trên dicing frame; <em>thiết bị tiêu biểu</em>: <span class="term be">WDF 12DP+</span> — wafer/dicing frame prober của TEL<a href="#ref3" class="cite">[3]</a>, cho phép test điện các die <em>sau khi cắt</em> nhưng trước khi nhặt từng chip vào package, đảm bảo chỉ những die đã chứng minh tốt mới được đóng gói.
+        Mỗi die sau khi cắt được <strong>kiểm thử quang học</strong> (AOI — Automated Optical Inspection) để phát hiện vết nứt, sứt mẻ, hạt bụi. Một số dòng cao cấp còn dùng <strong>X-ray inspection</strong> để soi cấu trúc bên trong (đặc biệt cho 3D NAND nhiều tầng). Một bước test cuối nữa thường được thực hiện sau khi wafer đã được cắt và đặt trên dicing frame; <em>thiết bị tiêu biểu</em>: <span class="term be">WDF 12DP+</span> — wafer/dicing frame prober của TEL<a href="#ref3" class="cite">[3]</a>, cho phép test điện các die <em>sau khi cắt</em> nhưng trước khi nhặt từng chip vào package, đảm bảo chỉ những die đã chứng minh tốt mới được đóng gói.
       </p>
 
       <div class="figure">
@@ -2441,7 +2441,7 @@
         </div>
         <div class="glossary-row">
           <div class="glossary-term">KGD<span class="vn">Known Good Die</span></div>
-          <div class="glossary-def">Die đã được kiểm tra và xác định là tốt — sẵn sàng cho bước packaging.</div>
+          <div class="glossary-def">Die đã được kiểm thử và xác định là tốt — sẵn sàng cho bước packaging.</div>
         </div>
         <div class="glossary-row">
           <div class="glossary-term">Mask / Reticle<span class="vn">Photomask</span></div>
