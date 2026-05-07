@@ -140,6 +140,20 @@
     font-weight: 500;
   }
   .topbar-meta .author { font-weight: 600; color: #fff; }
+  .topbar-meta .view-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+  }
+  .topbar-meta .view-pill svg { width: 14px; height: 14px; opacity: 0.85; }
+  .topbar-meta .view-pill .view-count { font-variant-numeric: tabular-nums; }
 
   /* Hamburger menu button — mobile only */
   .menu-btn {
@@ -967,6 +981,13 @@
     </div>
     </div>
     <div class="topbar-meta">
+      <span class="view-pill" title="Lượt xem">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span class="view-count" aria-label="Lượt xem">—</span>
+      </span>
       <span class="pill">v1.0</span>
       <span class="author">TS. Đặng Minh Tuấn</span>
       <span class="pill">CMC ATI</span>
@@ -2587,9 +2608,6 @@
       <div style="margin-top: 12px;">
         Tài liệu được biên soạn dựa trên sơ đồ <em>Semiconductor Manufacturing Process</em> của Tokyo Electron (TEL). Nội dung kỹ thuật được đối chiếu với <strong>32 nguồn tham khảo</strong> liệt kê tại mục <em>References</em>, định dạng theo chuẩn IEEE.
       </div>
-      <div style="margin-top: 20px; text-align: center;">
-        <img alt="Lượt xem" src="https://visitor-badge.laobi.icu/badge?page_id=dangtuanvk.semiconductor-process&amp;left_text=L%C6%B0%E1%BB%A3t%20xem&amp;left_color=0B1628&amp;right_color=0284C7" style="vertical-align: middle; height: 28px;" />
-      </div>
     </footer>
 
   </main>
@@ -2661,6 +2679,17 @@
     });
   }, { threshold: 0.1 });
   sections.forEach(s => observer.observe(s));
+
+  /* ============ View counter ============ */
+  fetch('https://abacus.jasoncameron.dev/hit/dangtuanvk/semiconductor-process')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var el = document.querySelector('.view-count');
+      if (el && typeof d.value === 'number') {
+        el.textContent = d.value.toLocaleString('vi-VN');
+      }
+    })
+    .catch(function() {});
 </script>
 </body>
 </html>
